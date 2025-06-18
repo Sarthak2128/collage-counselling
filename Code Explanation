@@ -1,0 +1,274 @@
+
+
+---
+
+## ✅ Overview
+
+This is a **terminal-based interactive C program** that simulates a **college admission counselling process** like MHT-CET or JEE Centralized Admission Process (CAP).
+It takes the student's percentage, personal and academic details, and allows the user to apply for colleges and branches across **3 rounds** of counselling.
+
+---
+
+## 🔍 Step-by-Step Code Explanation
+
+---
+
+### 🔹 1. **Header Files**
+
+```c
+#include <stdio.h>
+#include <string.h>
+```
+
+* `stdio.h`: Standard input/output library (used for `printf`, `scanf`).
+* `string.h`: Provides string operations (not heavily used here but added in case of future enhancements).
+
+---
+
+### 🔹 2. **Main Function Starts**
+
+```c
+int main() {
+```
+
+* This is the entry point of every C program.
+
+---
+
+### 🔹 3. **Welcome Message**
+
+```c
+printf("============================================\n");
+printf("         WELCOME TO BE/BTECH COUNSELLING    \n");
+...
+```
+
+* Decorative header shown when the program starts.
+
+---
+
+### 🔹 4. **Variable Declarations**
+
+#### ➤ Personal & Academic Data
+
+```c
+char name[50], fname[50], mname[50];
+char dob[20], school[50], clg[50];
+int year10, year12;
+float per10, per12;
+```
+
+* Stores name, date of birth, school/college name, and academic records.
+
+#### ➤ Choice Inputs and Control Variables
+
+```c
+float cetMarks;
+int round = 1;
+char ans, accept;
+```
+
+* `cetMarks`: CET/JEE percentage.
+* `round`: Tracks current counselling round.
+* `ans`: Stores 'y' or 'n' response.
+* `accept`: For accepting or rejecting the seat.
+
+#### ➤ Static Data: College and Branch Lists
+
+```c
+char colleges[11][50] = { ... };
+char branch[5][50] = { ... };
+```
+
+* Lists of **11 colleges** and **5 branches**.
+
+---
+
+### 🔹 5. **3D Cutoff Matrix**
+
+```c
+float cutoffs[11][5][3] = { ... };
+```
+
+* 3D array with structure:
+
+  * `[college_index][branch_index][round_index]`
+  * Stores percentage cutoff for each branch, college, and round.
+
+---
+
+### 🔹 6. **User Enters CET/JEE Marks**
+
+```c
+printf("Enter your CET/JEE percentage: ");
+scanf("%f", &cetMarks);
+```
+
+* Reads student's CET/JEE percentile (float value).
+
+---
+
+### 🔹 7. **Display Available Colleges**
+
+```c
+for (int i = 0; i < 11; i++) {
+    printf("%d. %s\n", i + 1, colleges[i]);
+}
+```
+
+* Lists all the colleges (1 to 11).
+
+---
+
+### 🔹 8. **Prompt to Fill Admission Form**
+
+```c
+printf("Do you want to fill admission form? (y/n): ");
+scanf(" %c", &ans);
+```
+
+* If 'y', the user continues. If 'n', the program exits with a thank-you message.
+
+---
+
+### 🔹 9. **Filling Admission Form**
+
+```c
+scanf(" %[^\n]s", name);
+...
+```
+
+* `scanf(" %[^\n]s", ...)`: Reads multi-word strings including spaces.
+* Gathers full name, parents' names, DOB, 10th/12th % and years, school and college names.
+
+---
+
+### 🔹 10. **Counselling Logic (3 Rounds)**
+
+#### Loop for 3 rounds
+
+```c
+while (round <= 3) {
+```
+
+* Allows up to 3 rounds of counselling if the student doesn't get a seat or declines one.
+
+#### Inside Each Round:
+
+```c
+scanf("%d", &cno); // choose college
+scanf("%d", &bno); // choose branch
+```
+
+* The student selects college and branch.
+
+#### Check Eligibility:
+
+```c
+float required = cutoffs[cno - 1][bno - 1][round - 1];
+if (cetMarks >= required) {
+```
+
+* Compares user's CET score with the cutoff for selected branch/college in that round.
+
+---
+
+### 🔹 11. **Allotment & Confirmation**
+
+```c
+if (cetMarks >= required) {
+    printf("You are allotted:\n");
+    ...
+    scanf(" %c", &accept);
+}
+```
+
+* If eligible, shows college and branch.
+* Asks if the student wants to accept the offer.
+
+---
+
+### 🔹 12. **Generate Allotment Letter**
+
+```c
+if (accept == 'y') {
+    printf("COLLEGE ALLOTMENT LETTER\n");
+    ...
+    return 0;
+}
+```
+
+* Displays all entered and allotted details as an official allotment letter.
+* Ends the program with a success message.
+
+---
+
+### 🔹 13. **If Rejected or Not Eligible**
+
+```c
+else {
+    printf("You declined the offer. Going to next round.\n\n");
+    break;
+}
+```
+
+* If student rejects the seat, they can try again in next round.
+
+```c
+else {
+    printf("Sorry! Your score does not meet the cutoff.\nPlease try another college.\n\n");
+}
+```
+
+* If not eligible, asks to select another college or branch.
+
+---
+
+### 🔹 14. **After 3 Rounds Without Allotment**
+
+```c
+if (!found) {
+    printf("\nSorry! No allotment in any round.\n");
+}
+```
+
+* If all rounds are over and no seat was accepted, shows rejection message.
+
+---
+
+### 🔹 15. **If Form is Not Filled**
+
+```c
+else {
+    printf("Thanks for visiting. Goodbye!\n");
+}
+```
+
+* If user chose 'n' when asked to fill the form.
+
+---
+
+## 🎯 Final Summary
+
+| Component           | Purpose                                   |
+| ------------------- | ----------------------------------------- |
+| `cutoffs[11][5][3]` | Cutoff data by college, branch, and round |
+| `round` variable    | Tracks the round number                   |
+| User input fields   | Personal, academic, and preferences       |
+| Conditions          | Seat is allotted only if score ≥ cutoff   |
+| Output              | Console-based allotment letter            |
+
+---
+
+## ✅ Key Concepts Used
+
+* Arrays (1D, 2D, 3D)
+* Conditional statements
+* Loops (`while`, `for`)
+* String and float inputs
+* Formatted output (`printf`)
+* Realistic data simulation
+
+---
+
+
