@@ -1,0 +1,77 @@
+============================================
+         WELCOME TO BE/BTECH COUNSELLING    
+============================================
+        Session 2025-2026 Admissions         
+============================================
+
+Enter your CET/JEE percentage: 99.98
+
+Available Colleges:
+1. COEP Pune
+2. VJTI Mumbai
+3. SPIT Mumbai
+4. GCOE Yavatmal
+5. GCOE Amravati
+6. GCOE Karad
+7. Walchand College Sangli
+8. SGGS Nanded
+9. GCOE Nagpur
+10. ICT Mumbai
+11. LPU Punjab
+
+Do you want to fill admission form? (y/n): y
+
+--- Fill Admission Form ---
+
+Enter Full Name: sarthak jahagirdar 
+Father's Name: santosh 
+Mother's Name: sandhya 
+Date of Birth (DD/MM/YYYY): 28\03\2004
+10th Percentage: 92.99
+12th Percentage: 89.98
+School Name: shri ms jain english school 
+College Name: swami dindayal mahavidhyalay 
+Year of Passing 10th: 2022
+Year of Passing 12th: 2024
+
+--- ROUND 1 ---
+
+Choose College (1 to 11): 1
+
+Choose Branch:
+1. Computer Science Engineering (Cutoff: 99.90)
+2. Electronics & Telecommunication (Cutoff: 99.80)
+3. Electrical Engineering (Cutoff: 99.70)
+4. Civil Engineering (Cutoff: 99.50)
+5. Mechanical Engineering (Cutoff: 99.60)
+
+Enter Branch Choice (1 to 5): 1
+
+You are allotted:
+College: COEP Pune
+Branch : Computer Science Engineering
+
+Do you want to accept? (y/n): y
+
+============================================
+         COLLEGE ALLOTMENT LETTER           
+============================================
+Name           : sarthak jahagirdar 
+Father's Name  : santosh 
+Mother's Name  : sandhya 
+DOB            : 28\03\2004
+10th %        : 92.99
+12th %        : 89.98
+School Name    : shri ms jain english school 
+College Name   : swami dindayal mahavidhyalay 
+10th Passed    : 2022
+12th Passed    : 2024
+--------------------------------------------
+Allotted College: COEP Pune
+Allotted Branch : Computer Science Engineering
+Course Duration : 4 Years
+============================================
+Thanks! You are successfully admitted.
+============================================
+
+
